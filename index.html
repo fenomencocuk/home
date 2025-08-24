@@ -1367,6 +1367,17 @@ body.modal-open{ overflow:hidden; touch-action: none; }
         .text-center { text-align: center; }
         .mb-4 { margin-bottom: 2rem; }
         .hidden { display: none !important; }
+
+        /* Küçük ekranlarda daha dikey oran + güvenli hizalama */
+@media (max-width: 768px){
+  .slider-container{ aspect-ratio: 4 / 5; height: auto; }
+  .slider{ height: 100%; }
+}
+
+/* Çok küçük ekranlar */
+@media (max-width: 480px){
+  .slider-nav{ width: 36px; height: 36px; font-size: 13px; }
+}
     </style>
 </head>
 

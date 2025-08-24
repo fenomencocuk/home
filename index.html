@@ -1368,16 +1368,42 @@ body.modal-open{ overflow:hidden; touch-action: none; }
         .mb-4 { margin-bottom: 2rem; }
         .hidden { display: none !important; }
 
-        /* Küçük ekranlarda daha dikey oran + güvenli hizalama */
+        /* === Mobil & Küçük Ekran Ayarı (daha kısa slider) === */
+
+/* Tablet ve altı */
 @media (max-width: 768px){
-  .slider-container{ aspect-ratio: 4 / 5; height: auto; }
-  .slider{ height: 100%; }
+  .slider-container{
+    /* oran yerine kontrollü yükseklik */
+    aspect-ratio: auto;              /* önceki 4/5'i iptal et */
+    height: min(42vh, 380px);        /* ekrana göre kısalt */
+    max-height: 380px;
+  }
+  .slider{ height: 100% !important; }
+
+  /* Yazıları küçült */
+  .slide-content{ padding: 12px 12px 14px; }
+  .slide-content h3{
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    line-height: 1.25;
+  }
+  .slide-content p{
+    font-size: clamp(.85rem, 3.2vw, 1rem);
+    line-height: 1.4;
+  }
+
+  /* Ok/prev-next butonları */
+  .slider-nav{ width: 34px; height: 34px; font-size: 12px; }
 }
 
-/* Çok küçük ekranlar */
+/* 480px ve altı (daha da kısa) */
 @media (max-width: 480px){
-  .slider-nav{ width: 36px; height: 36px; font-size: 13px; }
+  .slider-container{
+    height: min(36vh, 320px);
+    max-height: 320px;
+  }
+  .slider-nav{ width: 30px; height: 30px; font-size: 11px; }
 }
+
     </style>
 </head>
 
